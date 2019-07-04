@@ -24,7 +24,7 @@ namespace Game4Freak.AdminSync
     {
         public static AdminSync Instance;
         public DatabaseManager Database;
-        public const string VERSION = "1.0.0.0";
+        public const string VERSION = "1.0.1.0";
 
         protected override void Load()
         {
