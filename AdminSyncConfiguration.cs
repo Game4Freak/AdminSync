@@ -17,7 +17,7 @@ namespace Game4Freak.AdminSync
 
         public void LoadDefaults()
         {
-            databaseAddress = "localhost";
+            databaseAddress = "127.0.0.1";
             databaseUsername = "unturned";
             databasePassword = "password";
             databaseName = "unturned";

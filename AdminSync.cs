@@ -1,5 +1,4 @@
-﻿
-using Rocket.API;
+﻿using Rocket.API;
 using Rocket.API.Collections;
 using Rocket.Core;
 using Rocket.Core.Plugins;
@@ -40,19 +39,14 @@ namespace Game4Freak.AdminSync
             U.Events.OnPlayerConnected -= onPlayerConnected;
         }
 
-        public override TranslationList DefaultTranslations
-        {
-            get
+        public override TranslationList DefaultTranslations =>
+            new TranslationList()
             {
-                return new TranslationList()
-                {
-                    {"invalid", "Invalid! Try {0} {1}" },
-                    {"no_database_entry", "There is no database entry for {0}" },
-                    {"add_admin", "Added: {0} to synced admin" },
-                    {"remove_admin", "Removed: {0} from synced admin" },
-                };
-            }
-        }
+                {"invalid", "Invalid! Try {0} {1}"},
+                {"no_database_entry", "There is no database entry for {0}"},
+                {"add_admin", "Added: {0} to synced admin"},
+                {"remove_admin", "Removed: {0} from synced admin"},
+            };
 
         private void onPlayerConnected(UnturnedPlayer player)
         {
@@ -60,14 +54,14 @@ namespace Game4Freak.AdminSync
             player.Admin(Database.isAdmin(player.Id));
         }
 
-        public static Int32 getCurrentTime()
+        public static int getCurrentTime()
         {
-            return (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            return (int) DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
         }
 
-        public static DateTime GetDateTime(Int32 timestamp)
+        public static DateTime GetDateTime(int timestamp)
         {
-            return new System.DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(timestamp);
+            return new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(timestamp);
         }
     }
 }
